@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link type="text/css" href="css/sohu.css" rel="stylesheet" />
+		<script type="text/javascript" language="JavaScript">
+			
+			function change(value){
+				if(value == "r1"){
+					$("right1").style.display = "block";
+					$("right2").style.display = "none";
+					$("right3").style.display = "none";
+					$("li1").style.backgroundColor = "aqua";
+					$("li2").style.backgroundColor = "silver";
+					$("li3").style.backgroundColor = "silver";
+				}else if(value == "r2"){
+					$("right1").style.display = "none";
+					$("right2").style.display = "block";
+					$("right3").style.display = "none";
+					$("li1").style.backgroundColor = "silver";
+					$("li2").style.backgroundColor = "aqua";
+					$("li3").style.backgroundColor = "silver";
+				}else{
+					$("right1").style.display = "none";
+					$("right2").style.display = "none";
+					$("right3").style.display = "block";
+					$("li1").style.backgroundColor = "silver";
+					$("li2").style.backgroundColor = "silver";
+					$("li3").style.backgroundColor = "aqua";
+				}
+			}
+			
+			function $(id){
+				return "string" == typeof id ? document.getElementById(id) : id;
+    			}
+			
+		</script>
+	</head>
+	<body>
+		<div class="div1">
+			<div class="left">
+				<ul>
+					<li id="li1" onmouseover="change('r1')">我靠</li>
+					<li id="li2" onmouseover="change('r2')">卧槽</li>
+					<li id="li3" onmouseover="change('r3')">我日</li>
+				</ul>
+			</div>
+			<div id="right1"  class="right1">
+				<ul>
+					<li>我靠我靠我靠我靠</li>
+					<li>我靠我靠我靠我靠</li>
+					<li>卧槽卧槽卧槽卧槽</li>
+					<li>卧槽卧槽卧槽卧槽</li>
+					<li>我日我日我日我日</li>
+					<li>卧槽卧槽卧槽卧槽</li>
+					<li>卧槽卧槽卧槽卧槽</li>
+					<li>卧槽卧槽卧槽卧槽</li>
+				</ul>
+			</div>
+			<div  id="right2" class="right2">
+				<ul>
+					<li>我是第二我是第二</li>
+					<li>我是第二我是第二</li>
+					<li>我是第二我是第二</li>
+					<li>我是第二我是第二</li>
+					<li>我是第二我是第二</li>
+					<li>我是第二我是第二</li>
+					<li>我是第二我是第二</li>
+					<li>我是第二我是第二</li>
+				</ul>
+			</div>
+			<div id="right3" class="right3">
+				<ul>
+					<li>我是第三我是第三</li>
+					<li>我是第三我是第三</li>
+					<li>我是第三我是第三</li>
+					<li>我是第三我是第三</li>
+					<li>我是第三我是第三</li>
+					<li>我是第三我是第三</li>
+					<li>我是第三我是第三</li>
+					<li>我是第三我是第三</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

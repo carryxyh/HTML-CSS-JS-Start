@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>css rules</title>
+<style type="text/css">
+#div1{width:100%;height:400px; background:red;}
+</style>
+<script>
+
+    window.onload=init;
+    function $(id){
+              return "string" == typeof id ? document.getElementById(id) : id;
+    }
+    function init(){
+        var ocssRules=document.styleSheets[0].cssRules || document.styleSheets[0].rules || window.CSSRule.STYLE_RULE;
+        var theEl=$("div1");
+        ocssRules[0].style.background="yellow";
+        alert(ocssRules[0].style.background);
+        alert(ocssRules[0].style.height)
+    }
+    
+
+</script>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>

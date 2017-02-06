@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+	</head>
+	<body>
+		<div id="one"></div>
+		
+		
+	</body>
+	<script language="JavaScript">
+		$(document).ready(function(){
+			
+			//load方法中三个参数 1.表示把ajax请求发送给url 2.第二个参数表示是否发送数据data，
+			//如果要发送应该是key/value的格式"{'username':'xiu'}"如果不发送可以不写或者null，如果发送的有数据 用post方式提交
+			//第三个参数是回调函数。
+			//回调函数中又三个参数 1.data表示从服务器返回的数据（string）2.textstatus 表示文本状态 有四个 success error timeout notmodify
+			//3.XMLHttpRequest对象
+			//原生json格式的数据:
+			var send_data = {"username":$("#username").val(),"password":$("#password").val()}
+			
+			$("#one").load("",send_data,function(data,textstatus,XmlHttpRequest){
+				$(this) //this就是指向#one指向的对象
+				
+				//如果服务器返回的是json格式 处理方法：
+				var jsobj = eval("("+data+")");
+				
+				//如果服务器返回的是xml格式的  result -> dom对象
+				var result = XmlHttpRequest.responseXML;
+				//取出返回的res
+				var res = result.getElementsByTagName("res");
+				//取出结果的res值   服务器返回的xml格式为  "<result><res>xxx</res><info>xxx</info></result>"
+				res[0].childNodes[0].nodeValue;
+				
+			})
+			
+			//post方法  --》返回值  xmlhttprequest  如果需要处理xml格式的返回值  需要接受
+			//不依赖jquery对象
+			var xmlHttpRequest = $.post("url",send_data,function(data,textstatus){
+				//如果是json数据（多个） "[{'res':'xxx','info':'xxx'},{'res':'aaa','info':'aaa'}]"
+				var jsObj = eval("("+data+")");
+				//用jquery遍历
+				var $objs = $(jsObj);
+				
+				$objs.each(function(){
+					this.res;//取出res值
+				});
+				
+				//解析xml格式
+				
+			});
+		});
+		
+	</script>
+</html>

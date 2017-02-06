@@ -1,0 +1,69 @@
+
+<html>
+  <head>
+    
+    <title>a</title>
+    <script type="text/javascript">
+    
+    //根据不同的浏览器生成不同的ajax引擎对象
+    	function init(){
+    		try{
+				return new XMLHttpRequest();
+			}catch(e){
+				try{
+					return new ActiveXObject("Msxml2.XMLHTTP");
+				}catch(e){
+					try{
+						return new ActiveXObject("Microsoft.XMLHTTP");
+					}catch(e){
+						var h = document.getElementById("text");
+						h.innerHTML = "草";
+						throw e;
+					}
+				}
+			}
+    	}
+    	
+		window.onload = function(){
+						
+			var btn = document.getElementById("btn");
+			btn.onclick = function(){
+				
+				var xmlhttp = init();
+				
+				//get发送请求时  参数不变化不发送请求，浏览器默认是同一个请求 会直接从缓存中取
+				//解决办法：
+				//1.url后面加上时间戳  "/servlet/testAjax?mytime="+new Date()+"&username"+...
+				//2.在服务器处理   response.setHeader("Cache-control","no-cache");
+				
+				xmlhttp.open("GET","<c:url value='/servlet/testAjax' />",true);//true表示使用异步机制
+				
+				xmlhttp.send(null);	//如果是post请求 加上参数  即发送的数据
+				//如果是post请求 要加上一句话
+//				xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+				
+				xmlhttp.onreadystatechange = function(){
+					//4代表完成 200是成功
+					if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+						var text = xmlhttp.responseText;
+						
+						var h1 = document.getElementById("text");
+						
+						h1.innerHTML = text;
+					}
+				
+				};
+			};
+		};    
+    </script>
+  </head>
+
+
+  <body>
+
+	<button id="btn">点击</button>
+	<h1 id="text"></h1>
+
+
+  </body>
+</html>

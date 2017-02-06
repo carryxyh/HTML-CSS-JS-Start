@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" language="JavaScript">
+			function buy(obj){
+				var totalPrice = 0;
+				var fruits = document.getElementsByName("fruit");
+				for(var i = 0;i<fruits.length;i++){
+					if(fruits[i].checked){
+						totalPrice += parseFloat(fruits[i].value);
+					}
+				}
+				$("totalPrice").innerHTML = totalPrice;
+			}
+			
+			function $(id){
+				return "string" == typeof id ? document.getElementById(id) : id;
+    			}
+		</script>
+	</head>
+	<body>
+		<input type="checkbox" value="10" onclick="buy(this)" name="fruit" /> 苹果 10<br />
+		<input type="checkbox" value="15" onclick="buy(this)" name="fruit" /> 菊花 15<br />
+		<input type="checkbox" value="20" onclick="buy(this)" name="fruit" /> 香蕉 20<br />
+		<input type="checkbox" value="25" onclick="buy(this)" name="fruit" /> 木耳 25<br />
+		一共花了<span id="totalPrice">0</span>元
+	</body>
+</html>

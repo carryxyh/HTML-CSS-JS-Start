@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td>aaa</td>
+			</tr>
+			<tr>
+				<td>bbb</td>
+			</tr>
+			<tr id="node">
+				<td>ccc</td>
+			</tr>
+			<tr>
+				<td>ddd</td>
+			</tr>
+			<tr>
+				<td>eee</td>
+			</tr>
+		</table>
+		<button onclick="dian()">dsdsaffsd</button>
+		<script language="JavaScript">
+			function dian(){
+				var node = $("#node");
+				window.alert(node.parent().children().eq(3).children().eq(0).html());
+//				window.alert(node);
+				
+			}
+		</script>
+	</body>
+</html>

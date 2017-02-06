@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" language="JavaScript">
+			function checkInfo(){
+				$("sp1").innerHTML = "";
+				$("sp2").innerHTML = "";
+				$("sp3").innerHTML = "";
+				if(document.forms[0].username.value.length < 4 || document.forms[0].username.value.length > 8){
+					$("sp1").innerHTML = "用户名要大于四位小于八位";
+					return false;
+				}
+				if(document.forms[0].userpass.value.length < 6 || document.forms[0].userpass.value.length >12){
+					$("sp2").innerHTML = "密码要大于六位小于十二位";
+					return false;
+				}
+				if(document.forms[0].userpass.value != document.forms[0].qrpass.value){
+					$("sp3").innerHTML = "两次输入的密码不一致";
+					return false;
+				}
+			}
+			function $(id){
+				return "string" == typeof id ? document.getElementById(id) : id;
+    			}
+		</script>
+		<style type="text/css">
+			#sp1,#sp2,#sp3{
+				font-size: 11px;
+				color: #FF0000;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<form>
+			u:<input type="text" name="username"/><span id="sp1"></span><br />
+			p:<input type="password" name="userpass"/><span id="sp2"></span><br />
+			qrp:<input type="password" name="qrpass"/><span id="sp3"></span><br />
+			<input type="submit" value="提交" onclick="return checkInfo()"/>
+		</form>
+	</body>
+</html>

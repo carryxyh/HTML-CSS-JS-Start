@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<link href="css/h1_css.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="js/swfobject/swfobject.js"></script>
+		<script type="text/javascript">
+			var flashvars = {};
+  			flashvars.cssSource = "css/piecemaker.css";
+  			flashvars.xmlSource = "piecemaker.xml";
+  			var params = {};
+  			params.play = "true";
+  			params.menu = "false";
+ 			params.scale = "showall";
+  			params.wmode = "transparent";
+  			params.allowfullscreen = "true";
+  			params.allowscriptaccess = "always";
+  			params.allownetworking = "all";
+  			swfobject.embedSWF('piecemaker.swf', 'piecemaker', '900', '440', '10', null, flashvars, params, null);
+		</script>
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<div id="head_title"></div>
+			<div id="title_bar">
+				<ul>
+					<li><a href="#content_top" class="home">首页</a>
+					</li>
+					<li><a href="#content_below_1" class="product">产品</a>
+					</li>
+					<li><a href="#content_below_2" class="message">资讯</a>
+					</li>
+					<li><a href="#content_below_3" class="about">关于我们</a>
+					</li>
+
+				</ul>
+			</div>
+			<div id="content_main">
+				<div id="content_top" class="con">
+					<div id="content_left">
+						<div>
+							内容
+						</div>
+					</div>
+					<div id="content_right">
+						<div>
+							内容
+						</div>
+					</div>
+					<div class="bottom">
+						<a href="#head_title"></a>
+					</div>
+				</div>
+				<div id="content_below_1" class="con">
+					<div id="piecemaker">
+					</div>
+				</div>
+				<div class="bottom">
+					<a href="#head_title"></a>
+				</div>
+				<div id="content_below_2" class="con"></div>
+				<div class="bottom">
+					<a href="#head_title"></a>
+				</div>
+				<div id="content_below_3" class="con"></div>
+				<div class="bottom">
+					<a href="#head_title"></a>
+				</div>
+			</div>
+			<div id="footer">啊啊啊啊啊啊啊啊啊啊啊</div>
+		</div>
+	</body>
+
+</html>

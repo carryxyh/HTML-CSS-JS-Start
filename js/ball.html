@@ -1,0 +1,46 @@
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script language="JavaScript" type="text/javascript">
+			
+			var directX = 1;	
+			var directY = 1;
+			var sunX = 0;
+			var sunY = 0;
+			
+			function move(){
+				
+				sunX += directX;
+				sunY += directY;
+				
+				var sundiv = document.getElementById("sun");
+				
+				sundiv.style.left = sunX + "px";
+				sundiv.style.top = sunY + "px";
+//				window.alert(document.getElementById("sun").offsetWidth);
+				if(sunX + sundiv.offsetWidth >= document.body.clientWidth || sunX <= 0){
+					directX = -directX;
+				}
+				
+				if(sunY + sundiv.offsetHeight >=  document.body.clientHeight || sunY <= 0){
+					directY = -directY;
+				}
+			}
+			
+			function test(){
+				window.alert(document.body.clientHeight);
+			}
+			
+			setInterval("move()",10);
+			
+		</script>
+	</head>
+	<body>
+		<div id="sun" style="position: absolute;"> 
+			<img src="img/avator.png" />
+		</div>
+		<input type="button" onclick="test()" value="aaa"/>
+	</body>
+</html>

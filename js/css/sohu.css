@@ -1,0 +1,49 @@
+body{
+	font-size: 12px;
+}
+.div1{
+	width: 126px;
+	height: 156px;
+}
+.left{
+	width: 21px;
+	height:156px;
+	float: left;
+}
+.left ul{
+	padding: 0px;
+	margin: 0px;
+}
+.left ul li{
+	list-style-type: none;
+	width: 21px;
+	height: 42px;
+	margin-top: 2px;
+	background-color: silver;
+	text-align: center;
+	padding-top: 8px;
+}
+.right1,.right2,.right3{
+	margin-top: 1px;
+	margin-left: 1px;
+	width: 101px;
+	height: 156px;
+	float: left;
+}
+.right1 ul,.right2 ul,.right3 ul{
+	padding: 0px;
+	margin: 0px;
+	float: left;
+}
+.right1 ul li,.right2 ul li,.right3 ul li{
+	list-style-type: none;
+	line-height: 19px;
+	float: left;
+}
+.right2{
+	display: none;
+}
+.right3{
+	display: none;
+}
+

@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+	</head>
+	<body>
+		
+		<input type="text" id="in1" value="用户名"/><br/>
+		<input type="password" id="in2"/>
+		
+	</body>
+	<script type="text/javascript" language="JavaScript">
+			
+			$(document).ready(function(){
+				$("#in1").focus(function(){
+					var currentVal = $(this).val();
+					if(currentVal == this.defaultValue){
+						$(this).val("");
+					}else{
+						$(this).val(currentVal);
+					}
+				});
+				
+				$("#in1").blur(function(){
+					
+					var $currentVal = $(this).val();
+					if($currentVal == ""){
+						$(this).val(this.defaultValue);
+					}else{
+						$(this).val($currentVal);
+					}
+					
+				});
+				
+			});
+			
+			
+		</script>
+</html>

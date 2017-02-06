@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Login</title>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.8.3.js"></script>
+		<script type="text/javascript" language="javascript">
+		function init() {
+			try {
+				return new XMLHttpRequest();
+			} catch (e) {
+				try {
+					return new ActiveXObject("Msxml2.XMLHTTP");
+				} catch (e) {
+					try {
+						return new ActiveXObject("Microsoft.XMLHTTP");
+					} catch (e) {
+						throw e;
+					}
+				}
+			}
+		}
+		
+		$("#btn_submit").click(function(){
+			
+			var name = $(".username").val();
+			var pass = $(".userpass").val();
+			
+			var user = {"username":name,"userpass":pass};
+			
+			var xmlhttp = init();
+			
+			xmlhttp.open("POST","${pageContext.request.contextPath}/login/checkLogin",true);
+			xmlhttp.send(user);
+			
+			xmlhttp.onreadystatechange = function(){
+				if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+					alert("success");					
+				}else{
+					alert("fail");
+				}
+			};
+		});
+		
+		</script>
+	</head>
+	
+	<body>
+		<h1>欢迎登陆聊天室</h1>
+		<form>
+			用户名:<input type="text" name="username" /><br /> 
+			密码:<input type="password" name="userpass" /><br /> 
+			<input type="submit" id="btn_submit" value="登陆" />
+		</form>
+	</body>
+</html>

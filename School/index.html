@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<title>注册页面</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<form action="" method="post">
+		<table>
+			<tr>
+				<td>真实姓名:</td>
+				<td><input type="text" name="userName" /></td>
+				<td><span class="remindSpan"></span></td>
+			</tr>
+			<tr>
+				<td>性别:</td>
+				<td><input type="radio" name="sex" />男<input type="radio"
+					name="sex" />女</td>
+			</tr>
+			<tr>
+				<td>请选择您的职业:</td>
+				<td><select size="4" onchange="">
+						<option value="worker">已工作</option>
+						<option value="graduate">大学生</option>
+						<option value="midstu">中学生/中专技校</option>
+						<option value="nothing">以上都不是</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>请选择您所在的城市:</td>
+				<td><select>
+						<option>----省份----</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td class="tab_td1">公司:</td>
+				<td><input type="text" name="??" /></td>
+			</tr>
+			<tr>
+				<td>类型:</td>
+				<td><select name="userType">
+						<option value="graduate">大学生</option>
+						<option value="master">硕士</option>
+						<option value="doctor">博士</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>大学:</td>
+				<td>
+					<!-- 隐藏一个大学的id,注册一个用户，应当以大学编号为准，而不能以大学的名称为准 --> <input
+					type="hidden" name="universityId" id="universityId" /> <input
+					id="university" onclick="" type="text" name="university" />
+				</td>
+			</tr>
+			<tr>
+				<td class="tab_td1">电子邮箱:<br />&nbsp;
+				</td>
+				<td><input type="text" name="email" /><br /></td>
+			</tr>
+			<tr>
+				<td>设置密码:</td>
+				<td><input type="password" name="password" /></td>
+			</tr>
+			<tr>
+				<td>确认密码:</td>
+				<td><input type="password" name="password_yes" /></td>
+			</tr>
+			<tr>
+				<td>验证码:</td>
+				<td>请输入以下验证码，看不清换一张?</td>
+				<td>[1234]</td>
+			</tr>
+			<tr>
+				<td><input name="submit" type="submit" value="免费注册"
+					class="button1" /></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="" /><span class="">&nbsp;我已阅读并同意遵守</span>
+					<a href="#">校内网服务条款</a></td>
+			</tr>
+		</table>
+	</form>
+	<table border="1" align="center" height="380px" width="500px"
+		bordercolor="#3B5888">
+		<tr>
+			<td bordercolor="#C3C3C3" width="500px">
+				<c:forEach items="${countrylist }" var="country">
+					<a href="javascript:void(0);">${country.name }</a>|
+				</c:forEach>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<c:forEach items="${provincelist }" var="province">
+					<a href="javascript:void(0);">${province.name }</a>
+				</c:forEach>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<c:forEach items="${universitylist }" var="university">
+					<a href="javascript:void(0);">${university.name }</a>
+				</c:forEach>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js">
+			
+			$("#b1").click(function(){
+				
+				//改变id为two的所有<div>兄弟的背景颜色
+				$("#two").siblings("div").CSS("background","#000FFF");
+				//改变id为two的元素后面的所有<div>兄弟的背景颜色
+				$("#two ~ div").CSS("background","#000FFF");
+				//改变id为two的下一个div的背景颜色
+				$("#two + div").CSS("background","#000FFF");
+				//body下的所有div
+				//祖先 后代  意思是选中祖先下所有后代
+				$("body div").CSS()
+				$("body > div").css("background","#000FFF")
+				//改变第一个div的背景颜色 最后一个last（从上到下从左到右最后一个，没有层级概念）
+				$('div:first').CSS()
+				//改变class不为one的所有div的背景颜色
+				$("div:not('.one')").CSS
+				//改变索引为偶数的div的css样式 even匹配所有索引值为偶数的元素  从0开始计算  odd 相反（奇数）
+				$("div:even").CSS
+				//选择第一张表，的所有偶数行,中间空格表示选择关系 
+				$("table:eq(0) tr:even").CSS
+				//改变索引值大于3的div的背景颜色 lt相反 小于
+				$("div:gt(3)").CSS
+				//改变索引值等于3的div的背景颜色
+				$("div:eq(3)").CSS
+				//匹配标题元素 ：header
+				//改变当前正在执行动画的元素的背景颜色
+				$(":animated").CSS
+				//改变含有文本‘di’的div的元素的背景颜色
+				$("div:contains('di')").CSS
+				//改变内容为空的div的背景颜色
+				$("div:empty").CSS
+				//改变含有class为mini的div元素的背景颜色
+				//$("div:.mini").CSS 本身
+				$("div:has('.mini')").CSS//指的是含有class为mini的div
+				//改变含有子元素（文本元素）的div元素的背景颜色
+				$("div:parent").css
+				//改变不含有文本 di的div元素的背景
+				$("div:not(:contains('di'))").CSS
+				//改变所有可见的div的背景颜色
+				$('div:visible').css;
+				//选取所有不可见的元素，利用jquery中的show方法将他们显示出来，并设置背景颜色
+				$("div:hidden").CSS
+				$("div:hidden").show();
+				//通过jquery中each方法取值  i 索引  n  其中每一项 （可能为值也可能为对象）
+				$.each($objs, function(i,n) {    
+					window.alert(i+"    "+$(n).val());
+				});
+//				$.each($objs, function() {    
+//					window.alert("    " + $(this).val());                                                
+//				});
+
+				//jquery中取得的对象大多都是集合对象  jquery -> dom对象的两种方法
+				//1.var obj = $obj[0];
+				//2.var obj = $obj.get(0)
+				//改变所有含有title的div元素的背景  选中title = test的 div[title = 'test']
+				//改变所有title值不等于test的div的背景（没有title的也将被选中）div[title != 'test']
+				//改变title以te开头的div div[title ^= 'te']
+				//以est结尾的div[title $= 'est']
+				//title含有'es'的div div[title *= 'es']
+				$("div[title]").CSS
+				//选取所有含有id属性的div ， 然后在结果中选取属性title含有es的div元素
+				$("div[id][title *= 'es']").CSS
+				//选取每个class为one的div父元素下的第二个子元素
+				$("div .one:nth-child(2)").css
+				//选取class为one的父元素，如果这个父元素只含有一个子元素就选中该子元素
+				$("div .one:only-child").CSS
+				//选择所有的button
+				var buttons = $(":button") //var buttons = $("input[type='button']"); 第二种写法
+				//改变表单内type = text 可用<input>元素的值 不可用 disable
+				$("input[type='text']:enabled").val("text");
+				//获取多选框中选中的个数 利用jquery的length属性
+				$("input[type = 'checkbox']:checked").length;//$(":checkbox:checked")
+				//获取下拉框选中的内容
+				$("select option:selected").text();//.val()匹配第一个元素的值，.text（）匹配所有元素的值
+				//给一个元素设置class = one
+				$("").Attr("class","one");//$("").addClass("one")第二种写法
+				//给一个元素移除样式  remove
+				//切换样式 toggleclass  如果已经有则删除样式
+				$("#first").toggleClass("");
+				//判断是否含有样式 hasClass("one")
+				
+			});
+			//内容 div:contains()
+			//属性 div[type]
+			//div .one div中class=one的
+			//div,.one div或者是class = one的
+			
+			//取出class为one的元素下的所有孩子元素  然后取值
+			$(".one").children().each(function(){
+				$(this).text();
+			})
+			//找第一个子孩子
+			$(".one").children().eq(0).text();
+			//找后面的同辈元素 一个  选取所有的用nextAll  如果nextAll.eq(1)取后面第二个
+			//同理  prev前一个 prevAll前面所有
+			//siblings前后的兄弟元素
+			$(".one").next().text();
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
